@@ -13,10 +13,10 @@ clean:
 
 serve:
 	mvn package
-	java -cp target/example-percy-java-appium-1.0-SNAPSHOT.jar io.percy.examplepercyjavaappium.App
+	java -cp target/example-percy-appium-java-1.0-SNAPSHOT.jar io.percy.examplepercyappiumjava.App
 
 test-android: install
-	$(NPM)/percy exec --  mvn compile exec:java -Dexec.mainClass="io.percy.examplepercyjavaappium.Android"
+	$(NPM)/percy app:exec --  mvn compile exec:java -Dexec.mainClass="io.percy.examplepercyappiumjava.Android"
 
 test-ios: install
-	$(NPM)/percy exec --  mvn compile exec:java -Dexec.mainClass="io.percy.examplepercyjavaappium.Ios"
+	$(NPM)/percy app:exec --  mvn compile exec:java -Dexec.mainClass="io.percy.examplepercyappiumjava.Ios"

@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>io.percy.examplepercyjavaappium</groupId>
-  <artifactId>example-percy-java-appium</artifactId>
+  <groupId>io.percy.examplepercyappiumjava</groupId>
+  <artifactId>example-percy-appium-java</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>example-percy-java-appium</name>
+  <name>example-percy-appium-java</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
