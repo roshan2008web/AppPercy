@@ -25,6 +25,10 @@ public class Android {
         capabilities.setCapability("browserstack.key", "<USER_AUTH_KEY>");
         capabilities.setCapability("browserstack.appium_version", "1.20.2");
 
+        // Percy Options
+        capabilities.setCapability("percy.enabled", "true");
+        capabilities.setCapability("percy.ignoreErrors", "true");
+
         // App url we get post uploading in response
         capabilities.setCapability("app", "<APP_URL>");
         capabilities.setCapability("device", "Google Pixel 3");
