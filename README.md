@@ -1,4 +1,4 @@
-# example-percy-java-appium
+# example-percy-appium-java
 Example app used by the [Percy Java Appium tutorial](https://docs.percy.io/docs/java-appium-testing-tutorial) demonstrating Percy's Java Appium integration.
 
 ## Java Appium Tutorial
@@ -18,12 +18,12 @@ npm](https://nodejs.org/en/download/) and
 Clone the example application and install dependencies:
 
 ```bash
-$ git clone https://github.com/percy/example-percy-java-appium.git
-$ cd example-percy-java-appium
+$ git clone https://github.com/percy/example-percy-appium-java.git
+$ cd example-percy-appium-java
 $ make install
 ```
 
-Example Android and iOS apps are provided in [`src/main/resources`] (https://github.com/percy/example-percy-java-appium/blob/master/src/main/resources) folder. You can follow [`upload your app`] (https://www.browserstack.com/docs/app-automate/appium/getting-started/java#2-upload-your-app) if using App Automate.
+Example Android and iOS apps are provided in [`src/main/resources`] (https://github.com/percy/example-percy-appium-java/blob/master/src/main/resources) folder. You can follow [`upload your app`] (https://www.browserstack.com/docs/app-automate/appium/getting-started/java#2-upload-your-app) if using App Automate.
 
 ### Step 2
 

@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -41,6 +42,11 @@ public class Android {
         // Initialize AppPercy
         percy = new AppPercy(driver);
 
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         // Take First Screenshot
         percy.screenshot("First Screenshot");
 
@@ -52,6 +58,11 @@ public class Android {
         params.put("percent", 1);
         driver.executeScript("mobile: scrollGesture", params);
 
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         // Take Second Screenshot post scrolling
         percy.screenshot("Second Screenshot");
 
