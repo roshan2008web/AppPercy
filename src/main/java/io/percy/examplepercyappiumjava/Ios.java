@@ -1,4 +1,4 @@
-package io.percy.examplepercyjavaappium;
+package io.percy.examplepercyappiumjava;
 
 import java.net.MalformedURLException;
 import java.net.URL;
