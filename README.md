@@ -23,12 +23,30 @@ $ cd example-percy-appium-java
 $ make install
 ```
 
-Example Android and iOS apps are provided in [`src/main/resources`] (https://github.com/percy/example-percy-appium-java/blob/master/src/main/resources) folder. You can follow [`upload your app`] (https://www.browserstack.com/docs/app-automate/appium/getting-started/java#2-upload-your-app) if using App Automate.
+This tutorial specifically uses Browserstack App Automate to run appium test, even though you should be able to follow the tutorial if you are using any other service to run appium tests or running it locally. For app percy to work we only need to initialize AppPercy with driver object.
+
+In case you are choosing to use Browserstack App Automate, please follow following steps:
+
+1. You will need a BrowserStack `username` and `access key`. To obtain your access credentials, [sign up](https://www.browserstack.com/users/sign_up?utm_campaign=Search-Brand-India&utm_source=google&utm_medium=cpc&utm_content=609922405128&utm_term=browserstack) for a free trial or [purchase a plan](https://www.browserstack.com/pricing).
+
+2. Please get your `username` and `access key` from [profile](https://www.browserstack.com/accounts/profile) page.
+
+Example Android and iOS apps are provided in [`resources/`](https://github.com/percy/example-percy-appium-js/blob/master/resources) folder.
+You can upload them using following curl command
+```bash
+$ cd resources
+$ curl -u "<username>:<access key>" \
+  -X POST "https://api-cloud.browserstack.com/app-automate/upload" \
+  -F "file=@BStackSampleApp.ipa" # for iOS, for android use WikipediaSample.apk  
+# You will get output similar to following, keep track of this app url
+{"app_url":"bs://b3d22f77ac5c4064bc1892f1c470d3728a9b697f"}
+```
+
+You can also follow [`upload your app`](https://www.browserstack.com/docs/app-automate/appium/getting-started/java#2-upload-your-app) if using App Automate for latest instructions.
 
 ### Step 2
 
-Sign in to Percy and create a new project. You can name the project "test-project" if you'd like. After
-you've created the project, you'll be shown a token environment variable.
+Sign in to Percy and create a new `app` type project. You can name the project "test-project" if you'd like. After you've created the project, you'll be shown a token environment variable.
 
 ### Step 3
 
@@ -74,15 +92,17 @@ yet. You'll see that Percy shows you that these screenshots come from your `tuto
 
 ### Step 5
 
-Use your text editor to edit `Android.java` & `Ios.java` and introduce some visual changes.
+Depending on if you ran Android or iOS tests, please find one of the following lines in code and update it to change content on screen
 
-Android.java -> Add an extra scroll before taking screenshots like:
-
-``` shell
-driver.executeScript("mobile: scrollGesture", params);
+For Android.java
+```
+textInput.sendKeys("Browserstack"); // Say change this to "App Percy"
 ```
 
-Ios.java -> Update the key being sent to the textInput element.
+For Ios.java
+```
+textInput.sendKeys("hello@percy.io\n"); // Say change this to "email@browserstack.com"
+```
 
 
 ### Step 6
@@ -90,7 +110,7 @@ Ios.java -> Update the key being sent to the textInput element.
 Commit the change:
 
 ``` shell
-$ git commit -am "update UI changes"
+$ git commit -am "Changed text"
 ```
 
 ### Step 7
@@ -116,11 +136,11 @@ Visit your project in Percy and you'll see a new build with the visual compariso
 runs. Click anywhere on the Build 2 row. You can see the original screenshots on the left, and the new
 screenshots on the right.
 
-Percy has highlighted what's changed visually in the app! Screenshots with the largest changes are
+Percy has highlighted what's changed visually in the app! Snapshots with the largest changes are
 shown first You can click on the highlight to reveal the underlying screenshot.
 
-If you scroll down, you'll see that no other test cases were impacted by our changes to the 'Clear
-completed' button. The unchanged screenshots appear grouped together at the bottom of the list.
+If you scroll down, you'll see that no other test cases were impacted by our changes to text. 
+The unchanged screenshots are shown under `Unchanged` filter and are hidden by default.
 
 ### Finished! 😀
 
