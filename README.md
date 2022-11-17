@@ -76,13 +76,13 @@ yet. You'll see that Percy shows you that these screenshots come from your `tuto
 
 Use your text editor to edit `Android.java` & `Ios.java` and introduce some visual changes.
 
-Android.java: You can add an extra scroll before taking screenshots like:
+Android.java -> Add an extra scroll before taking screenshots like:
 
 ``` shell
 driver.executeScript("mobile: scrollGesture", params);
 ```
 
-Ios.java: You can update the key being sent to the textInput element.
+Ios.java -> Update the key being sent to the textInput element.
 
 
 ### Step 6
@@ -90,7 +90,7 @@ Ios.java: You can update the key being sent to the textInput element.
 Commit the change:
 
 ``` shell
-$ git commit -am "Emphasize 'Clear completed' button"
+$ git commit -am "update UI changes"
 ```
 
 ### Step 7
@@ -116,7 +116,7 @@ Visit your project in Percy and you'll see a new build with the visual compariso
 runs. Click anywhere on the Build 2 row. You can see the original screenshots on the left, and the new
 screenshots on the right.
 
-Percy has highlighted what's changed visually in the app! Snapshots with the largest changes are
+Percy has highlighted what's changed visually in the app! Screenshots with the largest changes are
 shown first You can click on the highlight to reveal the underlying screenshot.
 
 If you scroll down, you'll see that no other test cases were impacted by our changes to the 'Clear
