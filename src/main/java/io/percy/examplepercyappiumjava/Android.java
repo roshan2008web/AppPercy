@@ -2,11 +2,13 @@ package io.percy.examplepercyappiumjava;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.appium.java_client.MobileBy;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -50,13 +52,14 @@ public class Android {
         // Take First Screenshot
         percy.screenshot("First Screenshot");
 
-        // Find scrollable element
-        AndroidElement element = (AndroidElement) driver.findElementByXPath("//*[@scrollable='true']");
-        Map<String, Object> params = new HashMap<>();
-        params.put("elementId", element.getId());
-        params.put("direction", "down");
-        params.put("percent", 1);
-        driver.executeScript("mobile: scrollGesture", params);
+
+        AndroidElement searchElement = (AndroidElement) new WebDriverWait(driver, 30).until(
+            ExpectedConditions.elementToBeClickable(MobileBy.AccessibilityId("Search Wikipedia")));
+        searchElement.click();
+
+        AndroidElement textInput = (AndroidElement) new WebDriverWait(driver, 30).until(
+            ExpectedConditions.elementToBeClickable(MobileBy.id("org.wikipedia.alpha:id/search_src_text")));
+        textInput.sendKeys("Browserstack\n");
 
         try {
             TimeUnit.SECONDS.sleep(5);
