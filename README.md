@@ -104,7 +104,6 @@ For Ios.java
 textInput.sendKeys("hello@percy.io\n"); // Say change this to "email@browserstack.com"
 ```
 
-
 ### Step 6
 
 Commit the change:
