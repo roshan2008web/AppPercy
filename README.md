@@ -20,7 +20,6 @@ Clone the example application and install dependencies:
 ```bash
 $ git clone https://github.com/percy/example-percy-appium-java.git
 $ cd example-percy-appium-java
-$ make install
 ```
 
 This tutorial specifically uses Browserstack App Automate to run appium test, even though you should be able to follow the tutorial if you are using any other service to run appium tests or running it locally. For app percy to work we only need to initialize AppPercy with driver object.
@@ -34,7 +33,7 @@ In case you are choosing to use Browserstack App Automate, please follow followi
 Example Android and iOS apps are provided in [`resources/`](https://github.com/percy/example-percy-appium-js/blob/master/resources) folder.
 You can upload them using following curl command
 ```bash
-$ cd resources
+$ cd src/main/java/io/percy/resources
 $ curl -u "<username>:<access key>" \
   -X POST "https://api-cloud.browserstack.com/app-automate/upload" \
   -F "file=@BStackSampleApp.ipa" # for iOS, for android use WikipediaSample.apk  
@@ -77,6 +76,15 @@ Check out a new branch for your work in this tutorial (we'll call this branch
 
 ``` shell
 $ git checkout -b tutorial-example
+$ npm install
+$ npm install -g @percy/cli@latest
+```
+Minimum required `@percy/cli` version is 1.15.0 for this to work correctly. If you already have `@percy/cli` installed please
+update it to latest or minium required version with `npm update -g @percy/cli`.
+
+Now run the build with following commands
+
+``` shell
 # For Android
 $ make test-android
 # For iOS
