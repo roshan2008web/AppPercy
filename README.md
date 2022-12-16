@@ -1,5 +1,5 @@
 # example-percy-appium-java
-Example app used by the [Percy Java Appium tutorial](https://docs.percy.io/docs/java-appium-testing-tutorial) demonstrating Percy's Java Appium integration.
+Example app used by the [Percy Java Appium tutorial](https://docs.percy.io/v2-app/docs/appium-for-java) demonstrating Percy's Java Appium integration.
 
 ## Java Appium Tutorial
 
