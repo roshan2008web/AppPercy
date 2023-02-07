@@ -19,7 +19,7 @@ public class Android {
     private static AppPercy percy;
 
     // Hub Url to connect to Automation session
-    private static String HUB_URL = "http://hub.browserstack.com/wd/hub";
+    private static String HUB_URL = "https://hub.browserstack.com/wd/hub";
 
     public static void main(String[] args) throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
