@@ -2,17 +2,16 @@ package io.percy.examplepercyappiumjava;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.appium.java_client.MobileBy;
-
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-
 import io.percy.appium.AppPercy;
 
 public class Android {
@@ -24,8 +23,8 @@ public class Android {
     public static void main(String[] args) throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         // Browserstack specific capabiilities
-        capabilities.setCapability("browserstack.user", "<USER>");
-        capabilities.setCapability("browserstack.key", "<USER_AUTH_KEY>");
+        capabilities.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USERNAME"));
+        capabilities.setCapability("browserstack.key", System.getenv("BROWSERSTACK_ACCESS_KEY"));
         capabilities.setCapability("browserstack.appium_version", "1.20.2");
 
         // Percy Options
@@ -39,7 +38,7 @@ public class Android {
         capabilities.setCapability("project", "First Java Project");
 
         // Create sessioin
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL(HUB_URL), capabilities);
+        AndroidDriver driver = new AndroidDriver(new URL(HUB_URL), capabilities);
 
         // Initialize AppPercy
         percy = new AppPercy(driver);
@@ -53,12 +52,12 @@ public class Android {
         percy.screenshot("First Screenshot");
 
 
-        AndroidElement searchElement = (AndroidElement) new WebDriverWait(driver, 30).until(
-            ExpectedConditions.elementToBeClickable(MobileBy.AccessibilityId("Search Wikipedia")));
+        WebElement searchElement = new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+            ExpectedConditions.elementToBeClickable(AppiumBy.accessibilityId("Search Wikipedia")));
         searchElement.click();
 
-        AndroidElement textInput = (AndroidElement) new WebDriverWait(driver, 30).until(
-            ExpectedConditions.elementToBeClickable(MobileBy.id("org.wikipedia.alpha:id/search_src_text")));
+        WebElement textInput =  new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+            ExpectedConditions.elementToBeClickable(AppiumBy.accessibilityId("org.wikipedia.alpha:id/search_src_text")));
         textInput.sendKeys("Browserstack\n");
 
         try {
