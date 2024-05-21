@@ -22,8 +22,8 @@ public class Ios {
     public static void main(String[] args) throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         // Browserstack specific capabiilities
-        capabilities.setCapability("browserstack.user", "<USER>");
-        capabilities.setCapability("browserstack.key", "<USER_AUTH_KEY>");
+        capabilities.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USERNAME"));
+        capabilities.setCapability("browserstack.key", System.getenv("BROWSERSTACK_ACCESS_KEY"));
         capabilities.setCapability("browserstack.appium_version", "1.20.2");
 
         // Percy Options
@@ -31,7 +31,7 @@ public class Ios {
         capabilities.setCapability("percy.ignoreErrors", "true");
 
         // App url we get post uploading in response
-        capabilities.setCapability("app", "<APP_URL>");
+        capabilities.setCapability("app", "bs://59ef24b43c01e7eb336bc95026cf405fe11f60bc");
         capabilities.setCapability("device", "iPhone 14");
         capabilities.setCapability("os_version", "16");
         capabilities.setCapability("project", "First Java Project");
