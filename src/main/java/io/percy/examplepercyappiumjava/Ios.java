@@ -65,7 +65,7 @@ public class Ios {
         String browserstackUsername = System.getenv("BROWSERSTACK_USERNAME");
         String browserstackAccessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
 
-        IOSDriver driver = new IOSDriver(new URL("http://" + browserstackUsername + ":" + browserstackAccessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+        IOSDriver driver = new IOSDriver(new URL("https://" + browserstackUsername + ":" + browserstackAccessKey + "@hub.browserstack.com/wd/hub"), capabilities);
         return driver;
     }
 }
