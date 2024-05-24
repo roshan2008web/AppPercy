@@ -46,26 +46,30 @@ public class Ios {
     }
 
     private static IOSDriver getIosDriver() throws MalformedURLException {
+
+        String browserstackUsername = System.getenv("BROWSERSTACK_USERNAME");
+        String browserstackAccessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         HashMap<String, Object> browserstackOptions = new HashMap<>();
         browserstackOptions.put("projectName", "Demo Project");
-        browserstackOptions.put("appiumVersion", "1.21.0");
+//        browserstackOptions.put("appiumVersion", "1.21.0");
         browserstackOptions.put("local", "true");
         capabilities.setCapability("bstack:options", browserstackOptions);
         capabilities.setCapability("platformName", "ios");
         capabilities.setCapability("platformVersion", "16");
         capabilities.setCapability("deviceName", "iPhone 14");
         capabilities.setCapability("app", "bs://59ef24b43c01e7eb336bc95026cf405fe11f60bc");
+        capabilities.setCapability("browserstack.user", browserstackUsername);
+        capabilities.setCapability("browserstack.key", browserstackAccessKey);
 
         // Percy Options
         capabilities.setCapability("percy.enabled", "true");
         capabilities.setCapability("percy.ignoreErrors", "true");
 
         // Create session
-        String browserstackUsername = System.getenv("BROWSERSTACK_USERNAME");
-        String browserstackAccessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
 
-        IOSDriver driver = new IOSDriver(new URL("https://" + browserstackUsername + ":" + browserstackAccessKey + "@hub.browserstack.com/wd/hub"), capabilities);
-        return driver;
+        //        return new IOSDriver(new URL("https://" + browserstackUsername + ":" + browserstackAccessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+        return new IOSDriver(new URL("https://hub.browserstack.com/wd/hub"), capabilities);
     }
 }

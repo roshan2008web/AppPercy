@@ -21,7 +21,14 @@
       <artifactId>percy-appium-app</artifactId>
       <version>2.1.5</version>
     </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.17.0</version>
+    </dependency>
+
   </dependencies>
+
   <build>
     <plugins>
       <!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
